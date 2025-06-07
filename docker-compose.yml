@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  cms:
+    container_name: strapi
+    build:
+      context: ./cms-strapi
+    ports:
+      - "1337:1337"
+    volumes:
+      - ./cms-strapi:/app
+    environment:
+      DATABASE_CLIENT: sqlite
+      NODE_ENV: development
+
+  web:
+    container_name: frontend
+    build:
+      context: ./frontend-next
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend-next:/app
+    working_dir: /app
+    command: npm run dev
