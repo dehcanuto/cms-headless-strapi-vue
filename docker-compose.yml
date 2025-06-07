@@ -1,17 +1,40 @@
-version: "3.8"
-
 services:
-  cms:
+  strapi:
+    platform: linux/amd64
     container_name: strapi
-    build:
-      context: ./cms-strapi
+    build: ./cms-strapi
+    image: strapi:latest
+    restart: unless-stopped
+    env_file: ./cms-strapi/.env
+    volumes:
+      - ./cms-strapi/config:/opt/app/config
+      - ./cms-strapi/src:/opt/app/src
+      - ./cms-strapi/public/uploads:/opt/app/public/uploads
     ports:
       - "1337:1337"
-    volumes:
-      - ./cms-strapi:/app
+    networks:
+      - strapi
+    depends_on:
+      - strapiDB
+
+  strapiDB:
+    container_name: strapiDB
+    platform: linux/amd64
+    restart: unless-stopped
+    env_file: ./cms-strapi/.env
+    image: mysql:8.0
     environment:
-      DATABASE_CLIENT: sqlite
-      NODE_ENV: development
+      - MYSQL_ROOT_PASSWORD=admin123
+      - MYSQL_DATABASE=strapi
+      - MYSQL_USER=strapi
+      - MYSQL_PASSWORD=N0928WZF52fVwfLE4q
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - strapi-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - strapi
 
   web:
     container_name: frontend
@@ -21,5 +44,13 @@ services:
       - "3000:3000"
     volumes:
       - ./frontend-next:/app
+      - /app/node_modules
     working_dir: /app
-    command: npm run dev
+    env_file: ./frontend-next/.env
+    restart: always
+
+volumes:
+  strapi-data:
+
+networks:
+  strapi:
