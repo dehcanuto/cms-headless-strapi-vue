@@ -1,0 +1,5 @@
+/**
+ * posts service
+ */
+
+export default () => ({});

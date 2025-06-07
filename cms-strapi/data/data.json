@@ -1,0 +1,33 @@
+{
+  "posts": [
+    {
+      "title": "The internet's Own boy",
+      "slug": "the-internet-s-own-boy",
+      "description": "Follow the story of Aaron Swartz, the boy who could change the world",
+      "content": "Follow the story of Aaron Swartz, the boy who could change the world"
+    },
+    {
+      "title": "This shrimp is awesome",
+      "slug": "this-shrimp-is-awesome",
+      "description": "Mantis shrimps, or stomatopods, are marine crustaceans of the order Stomatopoda.",
+      "content": "Mantis shrimps, or stomatopods, are marine crustaceans of the order Stomatopoda."
+    },
+    {
+      "title": "A bug is becoming a meme on the internet",
+      "slug": "a-bug-is-becoming-a-meme-on-the-internet",
+      "description": "How a bug on MySQL is becoming a meme on the internet",
+      "content": "How a bug on MySQL is becoming a meme on the internet"
+    },
+    {
+      "title": "Beautiful picture",
+      "slug": "beautiful-picture",
+      "description": "Description of a beautiful picture"
+    },
+    {
+      "title": "What's inside a Black Hole",
+      "slug": "what-s-inside-a-black-hole",
+      "description": "Maybe the answer is in this article, or not...",
+      "content": "Maybe the answer is in this article, or not..."
+    }
+  ]
+}
