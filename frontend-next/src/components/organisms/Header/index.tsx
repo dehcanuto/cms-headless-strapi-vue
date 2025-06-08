@@ -48,7 +48,7 @@ const Header = (): JSX.Element => {
           <Link href="/" className="font-semibold text-gray-900">
             Posts
           </Link>
-          <Link href="/" className="font-semibold text-gray-900">
+          <Link href="/posts/create" className="font-semibold text-gray-900">
             Crie seu post!
           </Link>
         </div>
@@ -98,7 +98,7 @@ const Header = (): JSX.Element => {
                     Posts
                   </Link>
                   <Link
-                    href="/"
+                    href="/posts/create"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                   >
                     Crie seu post!

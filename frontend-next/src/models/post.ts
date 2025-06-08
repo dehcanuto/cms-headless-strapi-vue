@@ -12,3 +12,10 @@ export interface PostPropsType {
   createdBy: string | null;
   updatedBy: string | null;
 }
+
+export interface CreatePostType {
+  title: string;
+  slug: string;
+  description: string;
+  content: string;
+}
