@@ -29,11 +29,11 @@ export function DateTimeFormat(dateRoot: string): string {
 
 /**
  * Formata uma string de data para um formato curto e legível em português.
- * 
+ *
  * Exemplo de retorno:
  * - "Quarta-feira, 05 de Junho de 2025"
  * - "Quarta-feira, 05 de Junho de 2025 - às 14:30" (com `withTime` ativado)
- * 
+ *
  * @param dateRoot - Uma string representando a data (ISO ou semelhante). Será formatada com `DateTimeFormat` antes do uso.
  * @param withTime - (Opcional) Se `true`, adiciona horário (hh:mm) ao final da string formatada. Padrão: `false`.
  * @returns Uma string formatada com o dia da semana, dia do mês, mês por extenso e ano, opcionalmente com o horário.

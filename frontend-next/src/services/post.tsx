@@ -5,10 +5,14 @@ export async function getPosts(): Promise<PostPropsType[]> {
     cache: 'no-store',
   }).then((res) => res.json());
 
-  return data.map((item: PostPropsType) => ({
-    id: item.id,
-    title: item.title,
-    description: item.description,
-    publishedAt: item.publishedAt,
-  }));
+  return data;
 }
+
+export async function getSinglePost(url: string): Promise<PostPropsType> {
+  const data = await fetch(`http://localhost:1337/api/post/${url}`, {
+    cache: 'no-store',
+  }).then((res) => res.json());
+
+  return data;
+}
+
