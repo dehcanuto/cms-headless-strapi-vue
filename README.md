@@ -26,11 +26,11 @@ Este é um projeto para o processo seletivo da vaga Desenvolvedor(a) Fullstack. 
 
 ### Frontend
 
-- [Next.js 15](https://nextjs.org/)
-- [React 19](https://reactjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Axios](https://axios-http.com/)
-- [React Hook Form](https://react-hook-form.com/)
+- [Next.js 15](https://nextjs.org/) – Framework React completo para produção, com suporte a renderização híbrida, rotas automáticas e otimizações de performance.
+- [React 19](https://reactjs.org/) – Biblioteca JavaScript para construir interfaces de usuário com componentes reutilizáveis.
+- [Tailwind CSS](https://tailwindcss.com/) – Framework de CSS utilitário que permite criar interfaces responsivas de forma rápida e sem sair do HTML.
+- [Axios](https://axios-http.com/) – Cliente HTTP baseado em Promises para fazer requisições ao backend com facilidade.
+- [React Hook Form](https://react-hook-form.com/) – Biblioteca de formulários para React que fornece uma maneira simples e eficiente de lidar com inputs, validações e estados.
 
 ## 📦 Requisitos
 
@@ -139,5 +139,3 @@ Esta aplicação utiliza **Next.js 14**, **Tailwind CSS**, e consome a API headl
   - [ ] Um para a **API** (ex: criação de post).
   - [ ] Um para um **componente do front-end** (ex: listagem de posts ou formulário).
 - [ ] **Cobertura de testes acima de 80%** é um diferencial (não obrigatório).
-
----
