@@ -13,12 +13,12 @@ const Header = (): JSX.Element => {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="text-2xl font-bold text-slate-700 -m-1.5 p-1.5">
+          <Link href="/" className="text-2xl font-bold text-slate-700 -m-1.5 p-1.5">
             André
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500">
               .can
             </span>
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -58,19 +58,17 @@ const Header = (): JSX.Element => {
           </Link>
         </div>
       </nav>
-
-      {/* Menu mobile visível só se openMenu for true */}
       {openMenu && (
         <div className="lg:hidden fixed inset-0 z-50 bg-white" role="dialog" aria-modal="true">
           <div className="fixed inset-0 z-40 bg-black/20" onClick={() => setOpenMenu(false)}></div>
           <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
-              <a href="#" className="text-2xl font-bold text-slate-700 -m-1.5 p-1.5">
+              <Link href="/" className="text-2xl font-bold text-slate-700 -m-1.5 p-1.5">
                 André
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500">
                   .can
                 </span>
-              </a>
+              </Link>
               <button
                 onClick={() => setOpenMenu(false)}
                 type="button"
