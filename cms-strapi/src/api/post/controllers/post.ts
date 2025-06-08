@@ -13,9 +13,11 @@ export default {
   },
   async findAll(ctx) {
     try {
-      const posts = await strapi.entityService.findMany('api::post.post', {
-        populate: '*',
+      const posts = await strapi.documents("api::post.post").findMany({
+        status: 'published',
+        sort: "createdAt:desc",
       });
+
       ctx.body = posts;
     } catch (err) {
       ctx.body = err;

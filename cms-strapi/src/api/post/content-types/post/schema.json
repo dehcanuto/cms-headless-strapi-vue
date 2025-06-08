@@ -14,17 +14,20 @@
   "attributes": {
     "slug": {
       "type": "uid",
-      "targetField": "title"
+      "targetField": "title",
+      "required": true
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
       "type": "text",
       "maxLength": 120
     },
     "content": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "publishedAt": {
       "type": "datetime"

@@ -35,9 +35,17 @@ async function isFirstRun() {
 async function createEntry({ model, entry }) {
   try {
     // Actually create the entry in Strapi
-    await strapi.documents(`api::${model}.${model}`).create({
+    const created = await strapi.documents(`api::${model}.${model}`).create({
       data: entry,
     });
+
+    // Publish
+    const updated = await strapi.documents(`api::${model}.${model}`).publish({
+      documentId: created.documentId,
+    });
+
+    console.log('Resultado da criação:', created);
+    console.log('Resultado da atualizacao:', updated);
   } catch (error) {
     console.error({ model, entry, error });
   }
@@ -72,10 +80,7 @@ async function importPosts() {
   for (const post of posts) {
     await createEntry({
       model: 'post',
-      entry: {
-        ...post,
-        publishedAt: Date.now(),
-      },
+      entry: post,
     });
   }
 }
