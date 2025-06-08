@@ -40,12 +40,9 @@ async function createEntry({ model, entry }) {
     });
 
     // Publish
-    const updated = await strapi.documents(`api::${model}.${model}`).publish({
+    await strapi.documents(`api::${model}.${model}`).publish({
       documentId: created.documentId,
     });
-
-    console.log('Resultado da criação:', created);
-    console.log('Resultado da atualizacao:', updated);
   } catch (error) {
     console.error({ model, entry, error });
   }
@@ -87,7 +84,7 @@ async function importPosts() {
 
 async function importSeedData() {
   await setPublicPermissions({
-    post: ['findAll', 'findOne'],
+    post: ['findAll', 'findBySlug'],
   });
 
   await importPosts();

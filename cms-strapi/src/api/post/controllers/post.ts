@@ -23,4 +23,18 @@ export default {
       ctx.body = err;
     }
   },
+  async findBySlug(ctx) {
+    const { slug } = ctx.params;
+
+    const posts = await strapi.entityService.findMany('api::post.post', {
+      filters: { slug },
+      limit: 1,
+    });
+
+    if (!posts || posts.length === 0) {
+      return ctx.notFound('Post não encontrado');
+    }
+
+    return posts[0];
+  },
 };

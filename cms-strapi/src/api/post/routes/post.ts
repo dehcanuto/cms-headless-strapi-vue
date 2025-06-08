@@ -9,5 +9,14 @@ export default {
        middlewares: [],
      },
     },
+    {
+     method: 'GET',
+     path: '/post/:slug',
+     handler: 'post.findBySlug',
+     config: {
+       policies: [],
+       middlewares: [],
+     },
+    },
   ],
 };
