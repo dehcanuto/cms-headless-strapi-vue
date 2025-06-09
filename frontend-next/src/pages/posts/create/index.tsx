@@ -1,6 +1,6 @@
 'use client';
 
-import { JSX } from 'react';
+import { JSX, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 
@@ -9,6 +9,7 @@ import { CreatePostType } from '@/models/post';
 import BaseInputText from '@components/atoms/InputText';
 import FormField from '@components/molecules/FormField';
 import BaseInputTextArea from '@components/atoms/InputTextArea';
+import { slugify } from '@/misc/format';
 
 const CreatePostPage = (): JSX.Element => {
   const {
@@ -16,13 +17,18 @@ const CreatePostPage = (): JSX.Element => {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
+    watch,
   } = useForm<CreatePostType>();
 
   const router = useRouter();
+  const [slug, setSlug] = useState('');
+  const watchedTitle = watch('title');
+  const watchedDescription = watch('description') || '';
+  const maxDescriptionLength = 120;
 
   const onSubmit = async (data: CreatePostType) => {
     try {
-      await createPost(data)
+      await createPost({...data, slug })
       reset();
       router.push('/');
     } catch (error) {
@@ -30,6 +36,10 @@ const CreatePostPage = (): JSX.Element => {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    setSlug(slugify(watchedTitle || ''));
+  }, [watchedTitle]);
 
   return (
     <div>
@@ -40,16 +50,15 @@ const CreatePostPage = (): JSX.Element => {
                 <BaseInputText name="title" register={register} rules={{ required: 'Título é obrigatório' }} error={errors.title} />
             </FormField>
             <div className="flex text-sm gap-3 mt-2">
-                <span className="font-semibold">Slug:</span>
-                <span className="">slug</span>
+                <span className="text-slate-500">posts/{slug}</span>
             </div>
         </div>
         <div className="">
             <FormField label="Resumo" required>
-                <BaseInputTextArea name="description" register={register} rules={{ required: 'Resumo é obrigatório' }} error={errors.content} />
+                <BaseInputTextArea name="description" register={register} rules={{ required: 'Resumo é obrigatório' }} error={errors.content} max={maxDescriptionLength} />
             </FormField>
             <div className="flex items-center justify-end text-sm mt-2">
-                <span>68 / 120</span>
+                <span>{watchedDescription.length} / {maxDescriptionLength}</span>
             </div>
         </div>
         <FormField label="Conteúdo" required>
@@ -57,9 +66,9 @@ const CreatePostPage = (): JSX.Element => {
         </FormField>
         <div className="flex items-center justify-end">
             <button
-            type="submit"
-            disabled={isSubmitting}
-            className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700"
+              type="submit"
+              disabled={isSubmitting}
+              className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700"
             >
             {isSubmitting ? 'Publicando...' : 'Publicar'}
             </button>

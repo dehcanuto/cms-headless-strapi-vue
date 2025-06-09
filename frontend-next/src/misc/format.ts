@@ -59,3 +59,29 @@ export function DateFormatShort(dateRoot: string, withTime = false): string {
 
   return formattedDate;
 }
+
+/**
+ * Gera um slug em formato URL-friendly a partir de uma string de texto.
+ *
+ * Essa função transforma o texto em minúsculas, remove acentos e caracteres especiais,
+ * substitui espaços por hífens e remove hífens duplicados ou nas extremidades.
+ *
+ * @param text - A string de entrada (ex: título de um post) que será convertida em slug.
+ * @returns Uma string formatada como slug (ex: "meu-primeiro-post").
+ *
+ * @example
+ * ```ts
+ * slugify("Olá Mundo!"); // "ola-mundo"
+ * slugify("Vue.js & TypeScript"); // "vuejs-typescript"
+ * ```
+ */
+export function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/[^\w-]+/g, '')
+    .replace(/--+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
