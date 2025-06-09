@@ -2,20 +2,24 @@ FROM node:18-bullseye
 
 WORKDIR /app
 
-COPY package.json yarn.lock .yarnrc.yml ./
+RUN apt-get update && apt-get install -y \
+  python3 \
+  make \
+  g++ \
+  && rm -rf /var/lib/apt/lists/*
 
+COPY package.json yarn.lock .yarnrc.yml ./
 COPY .yarn ./.yarn
 
 RUN corepack enable
 RUN corepack prepare yarn@4.9.1 --activate
 
 RUN yarn install --immutable
+RUN yarn rebuild better-sqlite3
 
 COPY . .
 
-RUN rm -rf node_modules/.cache
-RUN rm -rf .cache build
-
+RUN rm -rf node_modules/.cache .cache build
 RUN yarn build
 
 EXPOSE 1337
