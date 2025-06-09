@@ -1,4 +1,4 @@
-import { JSX } from 'react';
+import React, { JSX } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Head from 'next/head';
 

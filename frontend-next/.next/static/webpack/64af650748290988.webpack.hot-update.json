@@ -1,1 +1,0 @@
-{"c":["pages/posts/create","webpack"],"r":["pages/search"],"m":["(pages-dir-browser)/./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?absolutePagePath=%2Fapp%2Fsrc%2Fpages%2Fsearch.tsx&page=%2Fsearch!","(pages-dir-browser)/./src/components/organisms/SearchPosts/index.tsx","(pages-dir-browser)/./src/pages/search.tsx"]}

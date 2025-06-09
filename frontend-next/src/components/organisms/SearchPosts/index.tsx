@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, JSX } from 'react';
+import React, { useEffect, useState, JSX } from 'react';
 
 import { getSearchedPost } from '@/services/post';
 import { PostPropsType } from '@/models/post';
