@@ -1,4 +1,4 @@
-import { JSX, useState } from 'react';
+import React, { JSX, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 const SearchField = (): JSX.Element => {

@@ -1,6 +1,6 @@
-import { JSX } from 'react';
+import React, { JSX } from 'react';
 
-import PostCard from '@components/molecules/PostCard';
+import PostCard from '@/components/molecules/PostCard';
 import { PostListPropTypes } from './types';
 
 const PostList = ({ posts, loading }: PostListPropTypes): JSX.Element => {

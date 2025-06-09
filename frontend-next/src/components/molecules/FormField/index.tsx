@@ -1,3 +1,4 @@
+import React, { JSX } from 'react';
 import { FormFieldPropsType } from './types';
 
 const FormField = ({
@@ -6,7 +7,7 @@ const FormField = ({
   required,
   loading = false,
   valid = null,
-}: FormFieldPropsType) => {
+}: FormFieldPropsType): JSX.Element => {
   return (
     <div className="relative flex flex-col text-left">
       <label className="absolute -top-1.5 left-4 px-3 bg-white font-bold text-xs text-slate-500 uppercase mb-2">
@@ -15,7 +16,7 @@ const FormField = ({
       </label>
       {children}
       {loading && (
-        <span className="absolute top-4 right-1 text-slate-500">
+        <span data-testid="spinner" className="absolute top-4 right-1 text-slate-500">
           <svg
             className="animate-spin -ml-1 mr-3 h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"
