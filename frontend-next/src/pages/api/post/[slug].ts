@@ -1,9 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import axios from 'axios';
-
-const api = axios.create({
-  baseURL: process.env.NEXT_STRAPI_API_URL,
-});
+import api from '@/services/api';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { slug } = req.query;

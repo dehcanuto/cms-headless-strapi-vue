@@ -156,3 +156,18 @@ yarn test --watch
   - [ ] Um para a **API** (ex: criação de post).
   - [x] Um para um **componente do front-end** (ex: listagem de posts ou formulário).
 - [ ] **Cobertura de testes acima de 80%** é um diferencial (não obrigatório).
+
+---
+
+## Sobre André Canuto
+
+Desenvolvedor Frontend desde 2016 (9 anos). Iniciei em agências de marketing, onde me especializei na criação de sites com WordPress e no design de landing pages otimizadas para SEO. Atualmente, trabalho em ambientes de startup, contribuindo como desenvolvedor front-end em projetos inovadores e inspiradores.
+
+Possuo domínio de diversos frameworks e tecnologias, incluindo React, Angular, Vue.js, Nuxt, Next.js, Node.js. Uso o SOLID como arquitetura e estilizadores como Tailwind CSS, Bootstrap e Material Design. Também tenho ampla experiência com CMS, PHP, Laravel, NestJS, MySQL, MongoDB, JavaScript e TypeScript.
+
+Falante nativo de português mas possuo nível B2 de proficiência em inglês (First Certificate) e conhecimento básico de espanhol. Possuo certificações em Vue.js, Angular e JavaScript pela Coodash.
+
+Reconhecido por ser criativo, habilidades de comunicação, dedicação, proatividade e escuta atenta, entrego resultados de alta qualidade de forma consistente.
+
+[Github](https://github.com/dehcanuto)
+[LinkedIn](https://www.linkedin.com/in/andre-canuto-77461b102/)
