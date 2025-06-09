@@ -84,7 +84,7 @@ async function importPosts() {
 
 async function importSeedData() {
   await setPublicPermissions({
-    post: ['findAll', 'findBySlug'],
+    post: ['findAll', 'findBySlug', 'create'],
   });
 
   await importPosts();

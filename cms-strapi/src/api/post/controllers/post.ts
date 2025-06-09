@@ -27,6 +27,7 @@ export default {
     const { slug } = ctx.params;
 
     const posts = await strapi.entityService.findMany('api::post.post', {
+      status: 'published',
       filters: { slug },
       limit: 1,
     });
@@ -36,5 +37,22 @@ export default {
     }
 
     return posts[0];
+  },
+  async create(ctx) {
+    try {
+      const { data } = ctx.request.body;
+
+      if (!data?.title || !data?.content || !data?.description || !data?.slug) {
+        return ctx.badRequest('Insert all fields');
+      }
+
+      const response = await strapi.entityService.create('api::post.post', {
+        data,
+      });
+
+      return ctx.send(response, 201);
+    } catch (error) {
+      return ctx.internalServerError('Failed to create post', error);
+    }
   },
 };

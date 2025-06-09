@@ -18,5 +18,14 @@ export default {
        middlewares: [],
      },
     },
+    {
+      method: 'POST',
+      path: '/post',
+      handler: 'post.create',
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+    },
   ],
 };
