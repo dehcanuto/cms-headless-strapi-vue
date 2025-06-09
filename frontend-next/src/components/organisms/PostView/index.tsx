@@ -35,9 +35,7 @@ const PostList = (): JSX.Element => {
             {DateFormatShort(post.publishedAt, true)}
           </time>
         </div>
-        <div className="border-t border-gray-200 pt-10 mt-6">
-            {post.content}
-        </div>
+        <div className="border-t border-gray-200 pt-10 mt-6">{post.content}</div>
       </div>
     </div>
   );

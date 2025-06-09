@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const api = axios.create({ baseURL: process.env.NEXT_STRAPI_API_URL });
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {  
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     if (req.method === 'POST') {
       const response = await api.post('/api/post', {
@@ -13,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     if (req.method === 'GET') {
-      const response = await api.get('/api/post')
+      const response = await api.get('/api/post');
       return res.status(200).json(response.data);
     }
 
