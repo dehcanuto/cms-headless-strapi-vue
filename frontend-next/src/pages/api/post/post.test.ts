@@ -51,7 +51,7 @@ describe('API /api/post handler', () => {
     expect(JSON.parse(res._getData())).toEqual({ id: 1, ...postData });
   });
 
-  it('deve buscar posts com GET', async () => {
+  it('deve buscar posts com GET e query `q`', async () => {
     const { req, res } = createMocks<NextApiRequest, NextApiResponse>({
       method: 'GET',
       query: {
@@ -74,6 +74,25 @@ describe('API /api/post handler', () => {
     expect(JSON.parse(res._getData())).toEqual({ posts: ['mocked post'] });
   });
 
+  it('deve buscar todos os posts quando query `q` não é fornecida', async () => {
+    const { req, res } = createMocks<NextApiRequest, NextApiResponse>({
+      method: 'GET',
+      query: {}
+    });
+
+    (api.get as jest.Mock).mockResolvedValue({
+      data: {
+        posts: ['post 1', 'post 2']
+      }
+    });
+
+    await handler(req, res);
+
+    expect(api.get).toHaveBeenCalledWith('/api/post?populate=*');
+    expect(res._getStatusCode()).toBe(200);
+    expect(JSON.parse(res._getData())).toEqual({ posts: ['post 1', 'post 2'] });
+  });
+
   it('deve retornar 405 para método não permitido', async () => {
     req = { method: 'PUT' };
 
@@ -93,11 +112,55 @@ describe('API /api/post handler', () => {
 
     (api.post as jest.Mock).mockRejectedValueOnce(new Error('Erro simulado'));
 
+    const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
     await handler(req as NextApiRequest, res as NextApiResponse);
 
     expect(statusMock).toHaveBeenCalledWith(500);
     expect(jsonMock).toHaveBeenCalledWith({
       error: 'Erro interno ao comunicar com o Strapi',
     });
+
+    expect(consoleSpy).toHaveBeenCalledWith('Erro na API interna:', 'Erro simulado');
+    consoleSpy.mockRestore();
+  });
+
+  it('deve retornar 500 em caso de erro na chamada GET', async () => {
+    const { req, res } = createMocks<NextApiRequest, NextApiResponse>({
+      method: 'GET',
+      query: { q: 'erro' }
+    });
+
+    (api.get as jest.Mock).mockRejectedValue(new Error('Erro de GET'));
+
+    const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    await handler(req, res);
+
+    expect(res._getStatusCode()).toBe(500);
+    expect(JSON.parse(res._getData())).toEqual({
+      error: 'Erro interno ao comunicar com o Strapi'
+    });
+
+    expect(consoleSpy).toHaveBeenCalledWith('Erro na API interna:', 'Erro de GET');
+    consoleSpy.mockRestore();
+  });
+
+  it('deve tratar erro genérico no catch', async () => {
+    req = { method: 'POST', body: {} };
+
+    (api.post as jest.Mock).mockRejectedValue('Erro como string');
+
+    const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    await handler(req as NextApiRequest, res as NextApiResponse);
+
+    expect(statusMock).toHaveBeenCalledWith(500);
+    expect(jsonMock).toHaveBeenCalledWith({
+      error: 'Erro interno ao comunicar com o Strapi'
+    });
+
+    expect(consoleSpy).toHaveBeenCalledWith('Erro na API interna:', 'Erro como string');
+    consoleSpy.mockRestore();
   });
 });

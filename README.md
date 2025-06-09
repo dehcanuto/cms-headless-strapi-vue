@@ -117,6 +117,28 @@ O DockerFile foi configurado para rodar os seeds já na montagem do container, e
 
 ---
 
+# 🧹 Rodando o Lint
+
+Para manter a qualidade do código e seguir boas práticas, este projeto utiliza o ESLint com regras específicas para TypeScript e React.
+
+### Como rodar o lint
+
+Para verificar se há erros de lint no código, execute:
+
+```bash
+yarn lint
+```
+
+### Como corrigir erros automaticamente
+
+Alguns erros podem ser corrigidos automaticamente com:
+
+```bash
+yarn lint --fix
+```
+
+---
+
 # 🧪 Rodando os Testes
 
 Para garantir que tudo está funcionando corretamente, siga estes passos para rodar os testes do projeto:
@@ -135,6 +157,22 @@ Para rodar os testes continuamente enquanto desenvolve:
 ```bash
 yarn test --watch
 ```
+
+Resultado dos testes:
+
+![Tests](.github/tests.png)
+
+## 3. Cobertura de testes
+
+Para rodar a cobertura de testes, basta executar esse comando no terminal:
+
+```bash
+yarn test:coverage
+```
+
+Resultado de cobertura de testes:
+
+![Coverage](.github/coverage.png)
 
 ---
 
@@ -170,5 +208,6 @@ Sou falante nativo de português, com proficiência B2 em inglês (First Certifi
 Reconhecido pela criatividade, comunicação clara, dedicação, proatividade e escuta ativa, me comprometo com a entrega consistente de soluções de alta qualidade.
 
 🔗 Me encontre por aqui:
+
 - [Github](https://github.com/dehcanuto)
 - [LinkedIn](https://www.linkedin.com/in/andre-canuto-77461b102/)

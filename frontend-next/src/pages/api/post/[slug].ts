@@ -11,8 +11,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     return res.status(405).json({ error: 'Method not allowed' });
-  } catch (error: any) {
-    console.error('Erro na API interna:', error.message);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error('Erro na API interna:', error.message);
+    } else {
+      console.error('Erro na API interna:', error);
+    }
     return res.status(500).json({ error: 'Erro interno ao comunicar com o Strapi' });
   }
 }

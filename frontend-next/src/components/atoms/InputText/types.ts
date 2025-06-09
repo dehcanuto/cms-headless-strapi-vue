@@ -14,5 +14,5 @@ export interface InputTextPropsType {
   placeholder: string;
   register: UseFormRegister<FieldValues>;
   rules?: RegisterOptions;
-  error: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined;
+  error: FieldError | Merge<FieldError, FieldErrorsImpl<FieldValues>> | undefined;
 }
