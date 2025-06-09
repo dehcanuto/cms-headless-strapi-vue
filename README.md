@@ -2,6 +2,7 @@
 ![Version](https://img.shields.io/badge/1.0.0-beta?label=version)
 ![!Strapi](https://img.shields.io/badge/Strapi-v5.15.0-purple?style=flat-square&logo=strapi)
 ![!Next.js](https://img.shields.io/badge/Next.js-v15.3.3-black?style=flat-square&logo=next.js)
+![Jest](https://img.shields.io/badge/Jest-29.7.0-C21325?style=flat-square&logo=jest&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/Tailwind-3.4.17-38bdf8?style=flat-square&logo=tailwindcss&logoColor=38bdf8)
 
 Este é um projeto para o processo seletivo da vaga Desenvolvedor(a) Fullstack. Utiliza **Strapi** como CMS headless e inclui seeds para inserir posts automaticamente.
@@ -116,6 +117,27 @@ O DockerFile foi configurado para rodar os seeds já na montagem do container, e
 
 ---
 
+# 🧪 Rodando os Testes
+
+Para garantir que tudo está funcionando corretamente, siga estes passos para rodar os testes do projeto:
+
+## 1. Execute os testes
+Para rodar todos os testes com Jest:
+
+```bash
+yarn test
+```
+
+## 2. Rodando os testes em modo watch (assistir alterações)
+
+Para rodar os testes continuamente enquanto desenvolve:
+
+```bash
+yarn test --watch
+```
+
+---
+
 ## ✅ To-do
 
 - [x] Utilize **Strapi** como CMS.
@@ -132,5 +154,5 @@ O DockerFile foi configurado para rodar os seeds já na montagem do container, e
 - [x] **SEO:** O conteúdo dos posts deve estar presente no HTML renderizado (SSR ou SSG).
 - [ ] Pelo menos **dois testes unitários**:
   - [ ] Um para a **API** (ex: criação de post).
-  - [ ] Um para um **componente do front-end** (ex: listagem de posts ou formulário).
+  - [x] Um para um **componente do front-end** (ex: listagem de posts ou formulário).
 - [ ] **Cobertura de testes acima de 80%** é um diferencial (não obrigatório).
