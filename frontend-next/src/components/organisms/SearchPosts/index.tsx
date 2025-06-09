@@ -21,7 +21,7 @@ const SearchPosts = ({ search }: { search: string }): JSX.Element => {
   }, [router, search]);
 
   return (
-    <div className="max-w-2xl mx-auto border-t border-gray-200 py-10 my-10 sm:my-16 sm:py-16">
+    <div className="border-t border-gray-200 py-10 my-10 sm:my-16 sm:py-16">
       <PostList posts={posts} loading={loading}></PostList>
     </div>
   );
