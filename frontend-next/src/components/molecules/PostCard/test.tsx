@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import PostCard from './index';
+import PostCard from '.';
 import { PostPropsType } from '@/models/post';
 
 const postMock: PostPropsType = {
