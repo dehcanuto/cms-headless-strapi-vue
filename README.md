@@ -114,26 +114,21 @@ O DockerFile foi configurado para rodar os seeds já na montagem do container, e
 }
 ```
 
-## Frontend NextJS
-
-Esta aplicação utiliza **Next.js 14**, **Tailwind CSS**, e consome a API headless do CMS Strapi.
-
 ---
 
 ## ✅ To-do
 
 - [x] Utilize **Strapi** como CMS.
 - [x] Configure **Docker** para subir CMS e front-end juntos.
-- [ ] Crie uma **API intermediária (BFF)** entre o front e o back para o cadastro dos posts.
-- [ ] Liste conteúdos vindos de um CMS headless.
-- [ ] Permita a **criação de posts** via uma API própria.
+- [x] Crie uma **API intermediária (BFF)** entre o front e o back para o cadastro dos posts.
+- [x] Liste conteúdos vindos de um CMS headless.
+- [x] Permita a **criação de posts** via uma API própria.
 - [x] Listar posts cadastrados no CMS na **página inicial**.
 - [x] Exibir **título**, **data de publicação** e **resumo** de cada post.
-- [ ] Criar uma **página de detalhes** do post (título, conteúdo e data de publicação).
-- [ ] Criar uma **página com formulário** para cadastro de novos posts:
-  - Campos: título, resumo, conteúdo.
+- [x] Criar uma **página de detalhes** do post (título, conteúdo e data de publicação).
+- [x] Criar uma **página com formulário** para cadastro de novos posts. Campos: `título`, `resumo`, `conteúdo`.
 - [ ] Implementar **pesquisa por título** dos posts.
-- [ ] Criar uma **API** para cadastrar novos posts no CMS escolhido.
+- [x] Criar uma **API** para cadastrar novos posts no CMS escolhido.
 - [ ] **SEO:** O conteúdo dos posts deve estar presente no HTML renderizado (SSR ou SSG).
 - [ ] Pelo menos **dois testes unitários**:
   - [ ] Um para a **API** (ex: criação de post).
