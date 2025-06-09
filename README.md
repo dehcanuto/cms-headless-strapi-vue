@@ -127,7 +127,7 @@ O DockerFile foi configurado para rodar os seeds já na montagem do container, e
 - [x] Exibir **título**, **data de publicação** e **resumo** de cada post.
 - [x] Criar uma **página de detalhes** do post (título, conteúdo e data de publicação).
 - [x] Criar uma **página com formulário** para cadastro de novos posts. Campos: `título`, `resumo`, `conteúdo`.
-- [ ] Implementar **pesquisa por título** dos posts.
+- [x] Implementar **pesquisa por título** dos posts.
 - [x] Criar uma **API** para cadastrar novos posts no CMS escolhido.
 - [ ] **SEO:** O conteúdo dos posts deve estar presente no HTML renderizado (SSR ou SSG).
 - [ ] Pelo menos **dois testes unitários**:

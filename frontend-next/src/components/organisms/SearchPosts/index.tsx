@@ -4,16 +4,16 @@ import { useEffect, useState, JSX } from 'react';
 
 import { getSearchedPost } from '@/services/post';
 import { PostPropsType } from '@/models/post';
-import PostList from '@components/molecules/PostList'
+import PostList from '@components/molecules/PostList';
 import { useRouter } from 'next/router';
 
-const SearchPosts = ({ search } : { search: string }): JSX.Element => {
+const SearchPosts = ({ search }: { search: string }): JSX.Element => {
   const router = useRouter();
   const [posts, setPosts] = useState<PostPropsType[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!search)router.push('/');
+    if (!search) router.push('/');
 
     getSearchedPost(search)
       .then((res: PostPropsType[]) => setPosts(res))

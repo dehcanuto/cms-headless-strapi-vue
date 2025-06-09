@@ -69,7 +69,7 @@ const CreatePostPage = (): JSX.Element => {
             />
           </FormField>
           <div className="flex items-center justify-end text-sm mt-2">
-            <span>
+            <span className="text-sm text-slate-500">
               {watchedDescription.length} / {maxDescriptionLength}
             </span>
           </div>

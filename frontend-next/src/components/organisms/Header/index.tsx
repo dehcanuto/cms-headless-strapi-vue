@@ -1,12 +1,25 @@
 'use client';
 
-import { JSX, useState } from 'react';
+import { JSX, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import SearchField from '@components/molecules/SearchField';
 
 const Header = (): JSX.Element => {
+  const router = useRouter();
   const [openMenu, setOpenMenu] = useState<boolean>(false);
   const adminUrl: string = `${process.env.NEXT_PUBLIC_API_URL}/admin`;
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setOpenMenu(false);
+    };
+
+    router.events.on('routeChangeStart', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange);
+    };
+  }, [router.events]);
 
   return (
     <header className="bg-white">
@@ -30,8 +43,8 @@ const Header = (): JSX.Element => {
             Crie seu post!
           </Link>
         </div>
-        <div className="flex-1 gap-8">
-          <div className="flex justify-end items-center gap-6">
+        <div className="flex sm:flex-1 justify-end items-center gap-8">
+          <div className="flex items-center gap-6">
             <SearchField></SearchField>
             <Link href={adminUrl} className="hidden lg:flex font-semibold text-gray-900">
               Log in
@@ -64,7 +77,7 @@ const Header = (): JSX.Element => {
         </div>
       </nav>
       {openMenu && (
-        <div className="lg:hidden fixed inset-0 z-50 bg-white" role="dialog" aria-modal="true">
+        <div className="lg:hidden fixed inset-0 z-50" role="dialog" aria-modal="true">
           <div className="fixed inset-0 z-40 bg-black/20" onClick={() => setOpenMenu(false)}></div>
           <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">

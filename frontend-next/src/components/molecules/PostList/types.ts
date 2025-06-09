@@ -1,6 +1,6 @@
-import { PostPropsType } from "@/models/post"
+import { PostPropsType } from '@/models/post';
 
 export interface PostListPropTypes {
-    posts: PostPropsType[]
-    loading: boolean
+  posts: PostPropsType[];
+  loading: boolean;
 }

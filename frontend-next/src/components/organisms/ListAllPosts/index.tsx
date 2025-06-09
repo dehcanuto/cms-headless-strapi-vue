@@ -4,7 +4,7 @@ import { useEffect, useState, JSX } from 'react';
 
 import { getPosts } from '@/services/post';
 import { PostPropsType } from '@/models/post';
-import PostList from '@components/molecules/PostList'
+import PostList from '@components/molecules/PostList';
 
 const ListAllPosts = (): JSX.Element => {
   const [posts, setPosts] = useState<PostPropsType[]>([]);
