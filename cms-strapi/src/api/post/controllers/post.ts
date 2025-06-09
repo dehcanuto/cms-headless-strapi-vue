@@ -4,16 +4,12 @@
 declare const strapi: any;
 
 export default {
-  exampleAction: async (ctx, next) => {
-    try {
-      ctx.body = 'Hello from exampleAction';
-    } catch (err) {
-      ctx.body = err;
-    }
-  },
   async findAll(ctx) {
     try {
+      const { query } = ctx;
+
       const posts = await strapi.documents("api::post.post").findMany({
+        filters: query?.filters || {},
         status: 'published',
         sort: "createdAt:desc",
       });
