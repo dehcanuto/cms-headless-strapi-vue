@@ -134,4 +134,4 @@ build
 ############################
 
 strapi
-.next/*
+frontend-next/.next/*
