@@ -13,7 +13,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     if (req.method === 'GET') {
-      const response = await api.get('/api/post');
+      const { q } = req.query;
+
+      const query = q
+        ? `/api/post?filters[title][$containsi]=${encodeURIComponent(String(q))}&populate=*`
+        : '/api/post?populate=*';
+
+      const response = await api.get(query);
       return res.status(200).json(response.data);
     }
 

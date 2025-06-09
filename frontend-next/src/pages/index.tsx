@@ -1,4 +1,4 @@
-import PostList from '@components/organisms/PostList';
+import ListAllPosts from '@components/organisms/ListAllPosts';
 
 export default function Posts() {
   return (
@@ -11,7 +11,7 @@ export default function Posts() {
           Veja algumas matérias do blog mais nosso que existe!
         </p>
       </div>
-      <PostList></PostList>
+      <ListAllPosts></ListAllPosts>
     </div>
   );
 }
