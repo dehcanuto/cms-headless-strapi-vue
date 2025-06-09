@@ -34,7 +34,7 @@ export default function PostPage({ post }: { post: PostPropsType }) {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const slug = context.params?.slug as string;
   const res = await getSinglePost(slug);
-  
+
   const publishedAt = new Date(res.publishedAt).toLocaleString('pt-BR', {
     weekday: 'long',
     day: '2-digit',
@@ -51,7 +51,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   return {
     props: {
-      post
+      post,
     },
   };
 };
