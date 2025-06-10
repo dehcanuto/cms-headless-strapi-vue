@@ -3,10 +3,10 @@ FROM node:18-bullseye
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y \
-  python3 \
-  make \
-  g++ \
-  && rm -rf /var/lib/apt/lists/*
+    python3 \
+    make \
+    g++ \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY package.json yarn.lock .yarnrc.yml ./
 COPY .yarn ./.yarn
@@ -15,8 +15,7 @@ RUN corepack enable
 RUN corepack prepare yarn@4.9.1 --activate
 
 RUN yarn install --immutable
-RUN yarn add -D node-gyp
-RUN yarn rebuild better-sqlite3 --update-binary
+RUN cd node_modules/better-sqlite3 && yarn run build-release
 
 COPY . .
 
