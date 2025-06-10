@@ -15,7 +15,8 @@ RUN corepack enable
 RUN corepack prepare yarn@4.9.1 --activate
 
 RUN yarn install --immutable
-RUN yarn rebuild better-sqlite3
+RUN yarn add -D node-gyp
+RUN yarn rebuild better-sqlite3 --update-binary
 
 COPY . .
 
