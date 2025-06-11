@@ -1,11 +1,11 @@
-# 🧪 Teste Técnico - André Canuto - Desenvolvedor(a) Fullstack
+# 🧪 CMS Headless + Strapi + Vue
 ![Version](https://img.shields.io/badge/1.0.0-beta?label=version)
 ![!Strapi](https://img.shields.io/badge/Strapi-v5.15.0-purple?style=flat-square&logo=strapi)
 ![!Next.js](https://img.shields.io/badge/Next.js-v15.3.3-black?style=flat-square&logo=next.js)
 ![Jest](https://img.shields.io/badge/Jest-29.7.0-C21325?style=flat-square&logo=jest&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/Tailwind-3.4.17-38bdf8?style=flat-square&logo=tailwindcss&logoColor=38bdf8)
 
-Este é um projeto para o processo seletivo da vaga Desenvolvedor(a) Fullstack. Utiliza **Strapi** como CMS headless e inclui seeds para inserir posts automaticamente.
+Este projeto utiliza **Strapi** como CMS headless e inclui seeds para inserir posts automaticamente.
 
 ---
 
@@ -173,27 +173,6 @@ yarn test:coverage
 Resultado de cobertura de testes:
 
 ![Coverage](.github/coverage.png)
-
----
-
-## ✅ To-do
-
-- [x] Utilize **Strapi** como CMS.
-- [x] Configure **Docker** para subir CMS e front-end juntos.
-- [x] Crie uma **API intermediária (BFF)** entre o front e o back para o cadastro dos posts.
-- [x] Liste conteúdos vindos de um CMS headless.
-- [x] Permita a **criação de posts** via uma API própria.
-- [x] Listar posts cadastrados no CMS na **página inicial**.
-- [x] Exibir **título**, **data de publicação** e **resumo** de cada post.
-- [x] Criar uma **página de detalhes** do post (título, conteúdo e data de publicação).
-- [x] Criar uma **página com formulário** para cadastro de novos posts. Campos: `título`, `resumo`, `conteúdo`.
-- [x] Implementar **pesquisa por título** dos posts.
-- [x] Criar uma **API** para cadastrar novos posts no CMS escolhido.
-- [x] **SEO:** O conteúdo dos posts deve estar presente no HTML renderizado (SSR ou SSG).
-- [x] Pelo menos **dois testes unitários**:
-  - [x] Um para a **API** (ex: criação de post).
-  - [x] Um para um **componente do front-end** (ex: listagem de posts ou formulário).
-- [x] **Cobertura de testes acima de 80%** é um diferencial (não obrigatório).
 
 ---
 
